@@ -88,6 +88,5 @@ $ export PGPASSWORD='qweasdzxc'; psql -h localhost -U test_user -d test -p 5555 
 Removing the Docker container:
 
 ```bash
-sookie
-
+sudo docker stop psql-validating; sudo docker rm psql-validating
 ```
