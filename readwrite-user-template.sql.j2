@@ -1,4 +1,4 @@
--- variables: {{ app_database }}, {{ app_readwrite_role }}, and {{ app_user_role }}
+-- variables: {{ app_database }}, {{ app_readwrite_role }}, and {{ app_user }}
 -- Create the Database
 CREATE DATABASE {{ app_database }};
 
@@ -21,8 +21,8 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, USAGE, UPDATE ON SEQUENC
 ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT EXECUTE ON FUNCTIONS TO {{ app_readwrite_role }};
 
 -- Create the application user and grant write role to it
-CREATE USER {{ app_user_role }} WITH PASSWORD '{{ app_user_pass|safe }}' NOSUPERUSER NOCREATEDB NOCREATEROLE INHERIT LOGIN NOREPLICATION NOBYPASSRLS CONNECTION LIMIT -1;
-GRANT {{ app_readwrite_role }} TO {{ app_user_role }};
+CREATE USER {{ app_user }} WITH PASSWORD '{{ app_user_pass|safe }}' NOSUPERUSER NOCREATEDB NOCREATEROLE INHERIT LOGIN NOREPLICATION NOBYPASSRLS CONNECTION LIMIT -1;
+GRANT {{ app_readwrite_role }} TO {{ app_user }};
 
 -- Set the owner of the database
 ALTER DATABASE {{ app_database }} OWNER TO {{ app_readwrite_role }};
