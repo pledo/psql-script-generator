@@ -31,11 +31,11 @@ classifiers = [
 #]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/psql_script_generator"]
+packages = ["src/cli"]
 #only-packages = true
 
 [project.scripts]
-psql_script_generator = "psql_script_generator.main:main"
+psql_script_generator = "cli.main:main"
 
 [project.urls]
 Homepage = "https://github.com/pledo/psql-script-generator"
