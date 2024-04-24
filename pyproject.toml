@@ -3,8 +3,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "psql_script_generator"
-version = "0.0.1"
+name = "psql-script-generator"
+version = "0.0.2"
 dependencies = [
   "jinja2"
 ]
@@ -35,7 +35,7 @@ packages = ["src/cli"]
 #only-packages = true
 
 [project.scripts]
-psql_script_generator = "cli.main:main"
+psql-script-generator = "cli.main:main"
 
 [project.urls]
 Homepage = "https://github.com/pledo/psql-script-generator"

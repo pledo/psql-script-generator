@@ -14,14 +14,14 @@ $ python -m venv tutorial_env
 $ source tutorial_env/bin/activate
 
 # Installing the cli
-pip install generate_sql_script
+pip install psql-script-generator
 
 ```
 
 ## Usage
 
 ```bash
-$ psql_script_generator -d <database_name> -w <readwrite_role> -u <user_role> -p <password> -t <template_file> -o <output_file>
+$ psql-script-generator -d <database_name> -w <readwrite_role> -u <user_role> -p <password> -t <template_file> -o <output_file>
 -d, --database: Name of the database.
 -w, --readwrite_role: Name of the readwrite role.
 -u, --user_role: Name of the users role.
@@ -96,4 +96,13 @@ DELETE 1
 
 DROP TABLE
 
+```
+
+Uninstall cli
+```bash
+$ pip uninstall psql-script-generator
+
+and deactive the venv
+
+$ deactivate
 ```
