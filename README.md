@@ -1,6 +1,7 @@
-# `generate_sql_script.py`
+# psql-script-generator
 
-This script generates a SQL script based on a Jinja2 template, allowing you to automate the creation of a database, roles, and permissions. It is particularly useful for setting up a PostgreSQL database with predefined roles and permissions.
+It generates a SQL script based on a Jinja2 template, allowing you to automate the creation of a database, roles, and permissions.
+It is particularly useful for setting up a PostgreSQL database with predefined roles and permissions.
 
 ## Installation:
 
@@ -39,7 +40,7 @@ $ docker run --name psql-validating -e POSTGRES_PASSWORD=mysecretpassword -p 555
 
 Run generate_sql_script cli:
 ```bash
-$ psql_script_generator -d test -w test_readwrite -u test_user -p 'qweasdzxc' -t readwrite-user-template.sql.j2 -o test_sql_script.sql
+$ psql-script-generator -d test -w test_readwrite -u test_user -p 'qweasdzxc' -t readwrite-user-template.sql.j2 -o test_sql_script.sql
 ```
 
 Run the generated SQL script:
@@ -68,6 +69,7 @@ ALTER DATABASE
 
 Now, let's test the grants that provided to test_user
 ```bash
+
 # Download the validating.sql file
 $ curl -o validating.sql https://raw.githubusercontent.com/pledo/psql-script-generator/main/validating.sql
 
