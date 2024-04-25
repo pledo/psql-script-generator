@@ -40,11 +40,11 @@ export PGPASSWORD='mysecretpassword'; psql -h localhost -U postgres -d postgres 
 #Testing the user_test grants
 
 echo -e "\n ### Validating rw user grants ### \n"
-export PGPASSWORD='qweasdzxc'; psql -h localhost -U test_user -d postgres -p 5555 -w -f validating.sql
+export PGPASSWORD='qweasdzxc'; psql -h localhost -U test_user -d postgres -p 5555 -w -f tests/validating.sql
 
 echo -e "\n ### Validating ro user grants ### \n"
-export PGPASSWORD='mysecretpassword'; psql -h localhost -U postgres -d test_ro -p 5555 -w -f validating_setup_for_ro_user.sql
-export PGPASSWORD='qweasdzxc'; psql -h localhost -U test_ro_user -d test_ro -p 5555 -w -f validating_ro.sql
+export PGPASSWORD='mysecretpassword'; psql -h localhost -U postgres -d test_ro -p 5555 -w -f tests/validating_setup_for_ro_user.sql
+export PGPASSWORD='qweasdzxc'; psql -h localhost -U test_ro_user -d test_ro -p 5555 -w -f tests/validating_ro.sql
 
 echo -e "\n ### Cleaning the env"
 # Stopping and deleting the postgres container
