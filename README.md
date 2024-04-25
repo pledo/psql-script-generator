@@ -22,9 +22,9 @@ pip install psql-script-generator
 ## Usage
 
 ```bash
-$ psql-script-generator -d <database_name> -w <readwrite_role> -u <user_role> -p <password> -t <template_file> -o <output_file>
+$ psql-script-generator -d <database_name> -r <readwrite_role> -u <user_role> -p <password> -t <template_file> -o <output_file>
 -d, --database: Name of the database.
--w, --readwrite_role: Name of the readwrite role.
+-r, --role_name: Name of the role.
 -u, --user_role: Name of the users role.
 -p, --password: Password for the user roles.
 -t, --template: Path to the Jinja2 template file.
@@ -110,4 +110,16 @@ $ pip uninstall psql-script-generator
 and deactive the venv
 
 $ deactivate
+```
+
+### For a full automated tests
+
+Enter tests folder
+```bash
+$ cd tests
+```
+
+Run the bash script
+```bash
+bash full_test.sh
 ```
