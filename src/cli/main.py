@@ -6,11 +6,12 @@ from jinja2 import Template
 
 def generate_sql_script(database, readwrite_role, user, user_pass, template, output_file):
 
-    #output_file = os.path.join(os.getcwd(), output_file)
-    #output_file = "/".join([os.getcwd(), output_file])
     print("Full output file:{}".format(output_file))
     # Load Jinja2 template from a file
-    template_path = os.path.abspath(os.path.join(os.path.dirname(__file__), template))
+
+    script_folder_path = os.path.dirname(__file__)
+    templates_folder_path = os.path.abspath(os.path.join(script_folder_path, "templates"))
+    template_path = os.path.abspath(os.path.join(templates_folder_path, template))
 
     if not os.path.exists(template_path):
         error_message = "Error: Template file {}' not found"
