@@ -4,7 +4,7 @@ import argparse
 import os
 from jinja2 import Template
 
-def generate_sql_script(database, readwrite_role, user, user_pass, template, output_file):
+def generate_sql_script(database, role, user, user_pass, template, output_file):
 
     print("Full output file:{}".format(output_file))
     # Load Jinja2 template from a file
@@ -25,7 +25,7 @@ def generate_sql_script(database, readwrite_role, user, user_pass, template, out
     # Render the template
     rendered_sql_script = template.render(
         app_database=database,
-        app_readwrite_role=readwrite_role,
+        app_role=role,
         app_user=user,
         app_user_pass=user_pass,
     )
@@ -49,17 +49,17 @@ def main():
     #os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
     # Parse command line arguments
-    usage_message = "Usage example: python3 generate_sql_script.py -d crawler -w crawler_readwrite_role -u crawler_user -p qweasdzxc -t readwrite_user_template.sql.j2"
+    usage_message = "Usage example: python3 generate_sql_script.py -d test -r rw_test_role -u test_user -p qweasdzxc -t readwrite_user_template.sql.j2"
     parser = argparse.ArgumentParser(description=usage_message)
     parser.add_argument('-d', '--database', required=True, help='Name of the database')
-    parser.add_argument('-w', '--readwrite_role', required=True, help='Name of the readwrite role')
+    parser.add_argument('-r', '--role_name', required=True, help='Name of the readwrite role')
     parser.add_argument('-u', '--user', required=True, help='Name of the user')
     parser.add_argument('-p', '--user_pass', required=True, help='User password')
     parser.add_argument('-t', '--template', required=True, help='Path to the Jinja2 template file')
     parser.add_argument('-o', '--output_file', required=True, help='Path of the output SQL script file')
     args = parser.parse_args()
 
-    generate_sql_script(args.database, args.readwrite_role, args.user, args.user_pass, args.template, args.output_file)
+    generate_sql_script(args.database, args.role_name, args.user, args.user_pass, args.template, args.output_file)
 
 if __name__ == '__main__':
     main()
