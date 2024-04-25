@@ -14,6 +14,9 @@ $ python -m venv tutorial_env
 # Activating
 $ source tutorial_env/bin/activate
 
+# Upgrade pip
+pip install --upgrade pip
+
 # Installing the cli
 pip install psql-script-generator
 
@@ -40,7 +43,7 @@ $ docker run --name psql-validating -e POSTGRES_PASSWORD=mysecretpassword -p 555
 
 Run generate_sql_script cli:
 ```bash
-$ psql-script-generator -d test -w test_readwrite -u test_user -p 'qweasdzxc' -t readwrite-user-template.sql.j2 -o test_sql_script.sql
+$ psql-script-generator -d test -r test_readwrite -u test_user -p 'qweasdzxc' -t readwrite-user-template.sql.j2 -o test_sql_script.sql
 ```
 
 Run the generated SQL script:
