@@ -111,3 +111,15 @@ and deactive the venv
 
 $ deactivate
 ```
+
+### For a full automated tests
+
+Enter tests folder
+```bash
+$ cd tests
+```
+
+Run the bash script
+```bash
+bash full_test.sh
+```
