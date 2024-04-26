@@ -55,7 +55,7 @@ def main():
     parser.add_argument('-r', '--role_name', required=True, help='Name of the readwrite role')
     parser.add_argument('-u', '--user', required=True, help='Name of the user')
     parser.add_argument('-p', '--user_pass', required=True, help='User password')
-    parser.add_argument('-t', '--template', required=True, help='Path to the Jinja2 template file')
+    parser.add_argument('-t', '--template', required=True, help='Path to the Jinja2 template file: readwrite-user-template.sql.j2 or readonly-user-template.sql.j2')
     parser.add_argument('-o', '--output_file', required=True, help='Path of the output SQL script file')
     args = parser.parse_args()
 

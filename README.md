@@ -34,8 +34,13 @@ psql-script-generator -d <database_name> -r <readwrite_role> -u <user_role> -p <
 -r, --role_name: Name of the role.
 -u, --user_role: Name of the users role.
 -p, --password: Password for the user roles.
--t, --template: Path to the Jinja2 template file.
+-t, --template: Path to the Jinja2 template file: readwrite-user-template.sql.j2 or readonly-user-template.sql.j2.
 -o, --output_file: Output file for the generated SQL script.
+```
+
+For example:
+```bash
+psql-script-generator -d test -w test_readwrite -u test_user -p 'qweasdzxc' -t readwrite-user-template.sql.j2 -o test_sql_script.sql
 ```
 
 Let's validate our generated sql script!!!
