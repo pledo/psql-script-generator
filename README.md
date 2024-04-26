@@ -6,26 +6,30 @@ It is particularly useful for setting up a PostgreSQL database with predefined r
 ## Installation:
 
 ```bash
-# You can create a virtual env to install the cli
+
+# Installing the cli
+pip install psql-script-generator
+
+
+# Or You can create a virtual env to install the cli
 
 # Creating the venv
-$ python -m venv tutorial_env
+python -m venv tutorial_env
 
 # Activating
-$ source tutorial_env/bin/activate
+source tutorial_env/bin/activate
 
 # Upgrade pip
 pip install --upgrade pip
 
 # Installing the cli
 pip install psql-script-generator
-
 ```
 
 ## Usage
 
 ```bash
-$ psql-script-generator -d <database_name> -r <readwrite_role> -u <user_role> -p <password> -t <template_file> -o <output_file>
+psql-script-generator -d <database_name> -r <readwrite_role> -u <user_role> -p <password> -t <template_file> -o <output_file>
 -d, --database: Name of the database.
 -r, --role_name: Name of the role.
 -u, --user_role: Name of the users role.
@@ -38,17 +42,17 @@ Let's validate our generated sql script!!!
 
 Start a PostgreSQL container:
 ```bash
-$ docker run --name psql-validating -e POSTGRES_PASSWORD=mysecretpassword -p 5555:5432 -d postgres:13
+docker run --name psql-validating -e POSTGRES_PASSWORD=mysecretpassword -p 5555:5432 -d postgres:13
 ```
 
 Run generate_sql_script cli:
 ```bash
-$ psql-script-generator -d test -r test_readwrite -u test_user -p 'qweasdzxc' -t readwrite-user-template.sql.j2 -o test_sql_script.sql
+psql-script-generator -d test -r test_readwrite -u test_user -p 'qweasdzxc' -t readwrite-user-template.sql.j2 -o test_sql_script.sql
 ```
 
 Run the generated SQL script:
 ```bash
-$ export PGPASSWORD='mysecretpassword'; psql -h localhost -U postgres -d postgres -p 5555 -w -f test_sql_script.sql
+export PGPASSWORD='mysecretpassword'; psql -h localhost -U postgres -d postgres -p 5555 -w -f test_sql_script.sql
 
 # The output should be something like that:
 
@@ -74,7 +78,7 @@ Now, let's test the grants that provided to test_user
 ```bash
 
 # Download the validating.sql file
-$ curl -o validating.sql https://raw.githubusercontent.com/pledo/psql-script-generator/main/validating.sql
+curl -o validating.sql https://raw.githubusercontent.com/pledo/psql-script-generator/main/validating.sql
 
 # Run the sql script with write, read and delete permissions
 export PGPASSWORD='qweasdzxc'; psql -h localhost -U test_user -d postgres -p 5555 -w -f validating.sql
@@ -108,18 +112,19 @@ DROP TABLE
 
 Uninstall cli
 ```bash
-$ pip uninstall psql-script-generator
+pip uninstall psql-script-generator
 
 and deactive the venv
 
-$ deactivate
+deactivate
 ```
 
 ### For a full automated tests
 
-Enter tests folder
+
+Clone the repol enter tests folder
 ```bash
-$ cd tests
+git clone -b main git@github.com:pledo/psql-script-generator.git ; cd tests
 ```
 
 Run the bash script
