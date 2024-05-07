@@ -83,7 +83,7 @@ Now, let's test the grants that provided to test_user
 ```bash
 
 # Download the validating.sql file
-curl -o validating.sql https://raw.githubusercontent.com/pledo/psql-script-generator/main/validating.sql
+curl -o validating.sql https://raw.githubusercontent.com/pledo/psql-script-generator-api/main/tests/validating.sql
 
 # Run the sql script with write, read and delete permissions
 export PGPASSWORD='qweasdzxc'; psql -h localhost -U test_user -d postgres -p 5555 -w -f validating.sql
