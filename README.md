@@ -13,7 +13,7 @@ pip install psql-script-generator
 
 # Or You can create a virtual env to install the cli
 
-# Creating the venv
+# Creating an venv 
 python -m venv tutorial_env
 
 # Activating
@@ -129,10 +129,13 @@ deactivate
 
 Clone the repol enter tests folder
 ```bash
-git clone -b main git@github.com:pledo/psql-script-generator.git ; cd tests
+git clone -b main git@github.com:pledo/psql-script-generator.git
+cd psql-script-generator/tests
 ```
 
 Run the bash script
 ```bash
+# the script is using python3.11 to create an venv, you can customize that
+# using your local python installation, like python3 -m venv .... or python -m venv
 bash full_test.sh
 ```
